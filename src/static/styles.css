@@ -415,6 +415,54 @@ button {
   opacity: 1;
 }
 
+/* Ensure the announcements management modal appears above other modals */
+#announcements-modal {
+  z-index: 1100;
+}
+
+#announcements-modal .modal-content {
+  /* Slightly stronger shadow to emphasize on top */
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(0,0,0,0.06);
+  max-height: 90vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+#announcements-list-container {
+  max-height: 40vh;
+  overflow-y: auto;
+  margin-bottom: 15px;
+}
+
+/* Style textarea in announcement form */
+#new-announcement-form textarea {
+  width: 100%;
+  min-height: 80px;
+  padding: 8px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 0.9rem;
+  resize: vertical;
+}
+
+#new-announcement-form textarea:focus {
+  outline: none;
+  border-color: var(--primary-light);
+  box-shadow: 0 0 0 2px rgba(83, 75, 174, 0.1);
+}
+
+/* Confirmation dialog needs to be above announcements modal */
+#confirm-dialog {
+  z-index: 1200;
+}
+
+#confirm-dialog .modal-content {
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
 .modal-content {
   background-color: var(--surface);
   padding: 18px;

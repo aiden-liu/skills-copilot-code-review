@@ -77,20 +77,20 @@ def create_announcement(
     # Parse dates
     try:
         end_dt = datetime.fromisoformat(end_date)
-    except Exception:
+    except (ValueError, TypeError):
         try:
             end_dt = datetime.fromisoformat(end_date + "T00:00:00")
-        except Exception:
+        except (ValueError, TypeError):
             raise HTTPException(status_code=400, detail="Invalid end_date format")
 
     start_dt = None
     if start_date:
         try:
             start_dt = datetime.fromisoformat(start_date)
-        except Exception:
+        except (ValueError, TypeError):
             try:
                 start_dt = datetime.fromisoformat(start_date + "T00:00:00")
-            except Exception:
+            except (ValueError, TypeError):
                 raise HTTPException(status_code=400, detail="Invalid start_date format")
 
     doc = {
